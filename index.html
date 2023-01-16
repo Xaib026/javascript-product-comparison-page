@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        td>img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+        }
+    </style>
+    <title>Title</title>
+</head>
+
+<body>
+
+    <h1 class="display-5 my-5 text-center">Compare Page in JS</h1>
+    <div class="container">
+        <div class="col-md-9 mx-auto">
+            <table class="table">
+                <tr class="bg-light">
+                    <th>Select Product</th>
+                    <th width="300px">
+                        <select class="form-control" id="select1" onchange="item1(this.value)">
+                        <option value="0">-- Select Anyone --</option>
+                    </select>
+                    </th>
+                    <th width="300px">
+                        <select class="form-control" id="select2" onchange="item2(this.value)">
+                        <option value="0">-- Select Anyone --</option>
+                    </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Product Image</th>
+                    <td>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png" id="img1" alt=" ">
+                    </td>
+                    <td>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png" id="img2" alt=" ">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Product Price</th>
+                    <td id="price1">N/A</td>
+                    <td id="price2">N/A</td>
+                </tr>
+                <tr>
+                    <th>Product Description</th>
+                    <td id="desc1">N/A</td>
+                    <td id="desc2">N/A</td>
+                </tr>
+                <tr>
+                    <th>Product Brand</th>
+                    <td id="brand1">N/A</td>
+                    <td id="brand2">N/A</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js "></script>
+</body>
+
+</html>
+
+<script src="data.js"></script>
+<script>
+    for (var i = 1; i < product.length; i++) {
+        document.getElementById("select1").innerHTML += `
+        <option value="${i}">${product[i].title}</option>
+        `;
+        document.getElementById("select2").innerHTML += `
+        <option value="${i}">${product[i].title}</option>
+        `;
+    }
+
+    function item1(a) {
+        var select2 = document.getElementById("select2").value;
+        if (a != select2) {
+            document.getElementById("img1").src = product[a].image
+            document.getElementById("price1").innerHTML = "PKR " + product[a].price
+            document.getElementById("desc1").innerHTML = product[a].description
+            document.getElementById("brand1").innerHTML = product[a].brand
+
+        } else {
+            document.getElementById("select1").selectedIndex = 0;
+            document.getElementById("img1").src = product[0].image
+            document.getElementById("price1").innerHTML = ""
+            document.getElementById("desc1").innerHTML = ""
+            document.getElementById("brand1").innerHTML = ""
+
+        }
+    }
+
+    function item2(a) {
+        var select1 = document.getElementById("select1").value;
+        if (a != select1) {
+            document.getElementById("img2").src = product[a].image
+            document.getElementById("price2").innerHTML = "PKR " + product[a].price
+            document.getElementById("desc2").innerHTML = product[a].description
+            document.getElementById("brand2").innerHTML = product[a].brand
+        } else {
+            document.getElementById("select2").selectedIndex = 0;
+            document.getElementById("img2").src = product[0].image
+            document.getElementById("price2").innerHTML = ""
+            document.getElementById("desc2").innerHTML = ''
+            document.getElementById("brand2").innerHTML = ""
+
+        }
+    }
+</script>
