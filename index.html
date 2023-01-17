@@ -28,22 +28,24 @@
                     <th>Select Product</th>
                     <th width="300px">
                         <select class="form-control" id="select1" onchange="item1(this.value)">
-                        <option value="0">-- Select Anyone --</option>
-                    </select>
+                            <option value="0">-- Select Anyone --</option>
+                        </select>
                     </th>
                     <th width="300px">
                         <select class="form-control" id="select2" onchange="item2(this.value)">
-                        <option value="0">-- Select Anyone --</option>
-                    </select>
+                            <option value="0">-- Select Anyone --</option>
+                        </select>
                     </th>
                 </tr>
                 <tr>
                     <th>Product Image</th>
                     <td>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png" id="img1" alt=" ">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                            id="img1" alt=" ">
                     </td>
                     <td>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png" id="img2" alt=" ">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                            id="img2" alt=" ">
                     </td>
                 </tr>
                 <tr>
@@ -74,48 +76,4 @@
 </html>
 
 <script src="data.js"></script>
-<script>
-    for (var i = 1; i < product.length; i++) {
-        document.getElementById("select1").innerHTML += `
-        <option value="${i}">${product[i].title}</option>
-        `;
-        document.getElementById("select2").innerHTML += `
-        <option value="${i}">${product[i].title}</option>
-        `;
-    }
-
-    function item1(a) {
-        var select2 = document.getElementById("select2").value;
-        if (a != select2) {
-            document.getElementById("img1").src = product[a].image
-            document.getElementById("price1").innerHTML = "PKR " + product[a].price
-            document.getElementById("desc1").innerHTML = product[a].description
-            document.getElementById("brand1").innerHTML = product[a].brand
-
-        } else {
-            document.getElementById("select1").selectedIndex = 0;
-            document.getElementById("img1").src = product[0].image
-            document.getElementById("price1").innerHTML = ""
-            document.getElementById("desc1").innerHTML = ""
-            document.getElementById("brand1").innerHTML = ""
-
-        }
-    }
-
-    function item2(a) {
-        var select1 = document.getElementById("select1").value;
-        if (a != select1) {
-            document.getElementById("img2").src = product[a].image
-            document.getElementById("price2").innerHTML = "PKR " + product[a].price
-            document.getElementById("desc2").innerHTML = product[a].description
-            document.getElementById("brand2").innerHTML = product[a].brand
-        } else {
-            document.getElementById("select2").selectedIndex = 0;
-            document.getElementById("img2").src = product[0].image
-            document.getElementById("price2").innerHTML = ""
-            document.getElementById("desc2").innerHTML = ''
-            document.getElementById("brand2").innerHTML = ""
-
-        }
-    }
-</script>
+<script src="main.js"></script>
