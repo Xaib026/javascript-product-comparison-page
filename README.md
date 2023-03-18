@@ -23,4 +23,4 @@
 <p>We welcome contributions to the product comparison page. If you have an idea for a new feature or have found a bug, please open an issue. If you're interested in contributing code, please submit a pull request.</p>
 
 <h3>Live Demo</h3>
-You can check the live demo <a href='https://xaib026.github.io/javascript-product-comparison-page/'>here</a>
+You can check the live demo <a href='https://js-product-comparison-page.netlify.app/'>here</a>
